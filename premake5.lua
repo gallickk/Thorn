@@ -9,6 +9,7 @@ workspace "Thorn"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
 project "Thorn"
 	location "Thorn"
 	kind "SharedLib"
@@ -16,6 +17,9 @@ project "Thorn"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "thpch.h"
+	pchsource "Thorn/src/thpch.cpp"
 
 	files
 	{
@@ -25,13 +29,14 @@ project "Thorn"
 
 	includedirs
 	{
+		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include"
 	}
 
 	filter "system:windows"
 		cppdialect "C++17"
 		staticruntime "On"
-		systemversion "10.0.19041.0"
+		systemversion "latest"
 
 		defines
 		{
@@ -41,7 +46,7 @@ project "Thorn"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" ..outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
 		}
 
 	filter "configurations:Debug"
@@ -49,11 +54,11 @@ project "Thorn"
 		symbols "On"
 
 	filter "configurations:Release"
-		defines "TH_Release"
+		defines "TH_RELEASE"
 		optimize "On"
 
 	filter "configurations:Dist"
-		defines "TH_Dist"
+		defines "TH_DIST"
 		optimize "On"
 
 project "Sandbox"
@@ -84,21 +89,21 @@ project "Sandbox"
 	filter "system:windows"
 		cppdialect "C++17"
 		staticruntime "On"
-		systemversion "10.0.19041.0"
+		systemversion "latest"
 
 		defines
 		{
 			"TH_PLATFORM_WINDOWS"
 		}
 
-		filter "configurations:Debug"
-			defines "TH_DEBUG"
-			symbols "On"
+	filter "configurations:Debug"
+		defines "TH_DEBUG"
+		symbols "On"
 
-		filter "configurations:Release"
-			defines "TH_Release"
-			optimize "On"
+	filter "configurations:Release"
+		defines "TH_RELEASE"
+		optimize "On"
 
-		filter "configurations:Dist"
-			defines "TH_Dist"
-			optimize "On"
+	filter "configurations:Dist"
+		defines "TH_DIST"
+		optimize "On"

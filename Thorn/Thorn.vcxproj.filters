@@ -4,6 +4,9 @@
     <Filter Include="Thorn">
       <UniqueIdentifier>{30F9290E-9C0D-52BF-658F-F51ED1624EF0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Thorn\Events">
+      <UniqueIdentifier>{146FE585-00D2-742A-A957-ADE0959940AD}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Thorn.h" />
@@ -16,9 +19,22 @@
     <ClInclude Include="src\Thorn\EntryPoint.h">
       <Filter>Thorn</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thorn\Events\ApplicationEvent.h">
+      <Filter>Thorn\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thorn\Events\Event.h">
+      <Filter>Thorn\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thorn\Events\KeyEvent.h">
+      <Filter>Thorn\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Thorn\Events\MouseEvent.h">
+      <Filter>Thorn\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Thorn\Log.h">
       <Filter>Thorn</Filter>
     </ClInclude>
+    <ClInclude Include="src\thpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Thorn\Application.cpp">
@@ -27,5 +43,6 @@
     <ClCompile Include="src\Thorn\Log.cpp">
       <Filter>Thorn</Filter>
     </ClCompile>
+    <ClCompile Include="src\thpch.cpp" />
   </ItemGroup>
 </Project>
