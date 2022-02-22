@@ -10,10 +10,18 @@ workspace "Thorn"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Thorn/vendor/GLFW/include"
+
+include "Thorn/vendor/GLFW"
+
 project "Thorn"
 	location "Thorn"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "on"
+	runtime "Release"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -30,7 +38,14 @@ project "Thorn"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links 
+	{ 
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

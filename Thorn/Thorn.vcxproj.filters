@@ -34,6 +34,9 @@
     <ClInclude Include="src\Thorn\Log.h">
       <Filter>Thorn</Filter>
     </ClInclude>
+    <ClInclude Include="src\Thorn\Window.h">
+      <Filter>Thorn</Filter>
+    </ClInclude>
     <ClInclude Include="src\thpch.h" />
   </ItemGroup>
   <ItemGroup>

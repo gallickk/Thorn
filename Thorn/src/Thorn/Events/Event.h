@@ -1,7 +1,7 @@
 #pragma once
 
 #include "thpch.h"
-#include "Core.h"
+#include "Thorn/Core.h"
 
 namespace Thorn {
 

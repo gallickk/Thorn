@@ -12,6 +12,9 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "Thorn/Log.h"
+
+
 #ifdef TH_PLATFORM_WINDOWS
 	#include <Windows.h>
 	

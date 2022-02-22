@@ -1,3 +1,6 @@
 [submodule "Thorn/vendor/spdlog"]
 	path = Thorn/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "Thorn/vendor/GLFW"]
+	path = Thorn/vendor/GLFW
+	url = https://github.com/TheCherno/GLFW

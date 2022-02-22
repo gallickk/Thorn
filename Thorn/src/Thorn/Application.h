@@ -1,9 +1,11 @@
 #pragma once
+
 #include "Core.h"
 #include "Events/Event.h"
+#include "Window.h"
 
-namespace Thorn
-{
+namespace Thorn {
+
 	class THORN_API Application
 	{
 	public:
@@ -11,8 +13,13 @@ namespace Thorn
 		virtual ~Application();
 
 		void Run();
+		void OnEvent(Event& e);
+	private:
+		std::unique_ptr<Window> m_Window;
+		bool m_Running = true;
 	};
 
-	//To be defined in client
+	// To be defined in CLIENT
 	Application* CreateApplication();
+
 }
